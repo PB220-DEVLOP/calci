@@ -7,7 +7,7 @@
         .calci-body{
             background-color: #242929;
             border:3px solid beige;
-            height: 300px;
+            height: auto;
             width: 200px;
             margin-left: auto;
             margin-right: auto;
@@ -59,39 +59,63 @@
 </head>
 <body>
     <div class="calci-body">
-<p class="titel">PB calci</p>
-<input type="tel" class="calci-screen">
+<p class="titel">PB calci</p> <button style="border-radius: 360px;border: 2px solid black; height:10px;margin-left: 10px;" id="light"></button>
+<input type="tel" class="calci-screen" id="calci-screen">
     <div class="botton-box">
-        <button class="button OPER" >/</button>
-        <button class="button SWITCH" >OFF</button>
-        <button class="button SWITCH" >ON</button>
+        <button class="button OPER"onclick="number('/')">/</button>
+        <button class="button SWITCH" onclick="switchbutton(0)">OFF</button>
+        <button class="button SWITCH"onclick="switchbutton(1)" >clear</button>
         </div>
     
 <div class="botton-box">
-    <button class="button OPER" >%</button>
-    <button class="button OPER" >*</button>
-    <button class="button OPER" >-</button>
+    <button class="button OPER"onclick="number('%')" >%</button>
+    <button class="button OPER" onclick="number('*')">*</button>
+    <button class="button OPER" onclick="number('-')">-</button>
     </div>
     <div class="botton-box">
-        <button class="button" >7</button>
-        <button class="button" >8</button>
-        <button class="button" >9</button>
+        <button class="button" onclick="number(7)">7</button>
+        <button class="button" onclick="number(8)">8</button>
+        <button class="button" onclick="number(9)">9</button>
         </div>
         <div class="botton-box">
-            <button class="button" >4</button>
-            <button class="button" >5</button>
-            <button class="button" >6</button>
+            <button class="button" onclick="number(4)">4</button>
+            <button class="button" onclick="number(5)">5</button>
+            <button class="button" onclick="number(6)">6</button>
             </div>
             <div class="botton-box">
-                <button class="button" >1</button>
-                <button class="button" >2</button>
-                <button class="button" >3</button>
+                <button class="button"onclick="number(1)" >1</button>
+                <button class="button"onclick="number(2)" >2</button>
+                <button class="button" onclick="number(3)">3</button>
                 </div>
                 <div class="botton-box">
-                    <button class="button" >0</button>
-                    <button class="button OPER" >+</button>
-                    <button style="background-color: rgb(214, 41, 25); color: aliceblue;" class="button" >=</button>
+                    <button class="button" onclick="number(0)" >0</button>
+                    <button class="button OPER" onclick="number('+')">+</button>
+                    <button style="background-color: rgb(214, 41, 25); color: aliceblue;" class="button" onclick="equalto()" >=</button>
                     </div>
 </div>
+<script>
+function number(num) {
+  const inputbox= document.getElementById("calci-screen");
+  inputbox.value=inputbox.value+num;
+
+}
+function equalto() {
+    const inputbox= document.getElementById("calci-screen");
+    inputbox.value = eval(inputbox.value);
+}
+function switchbutton(val){
+    const inputbox= document.getElementById("calci-screen");
+  if (val==0) {
+    inputbox.value="calci is off"
+  } else if (val==1) {
+    inputbox.value=""
+  } 
+  else
+  {
+    inputbox.value="wrong input" ;
+  }
+}
+
+</script>
 </body>
 </html>
